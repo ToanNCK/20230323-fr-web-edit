@@ -10,4 +10,35 @@
 .link-onepage a.active.link-book {
   background: orange !important;
   color: #ccc;
+}
+
+.figure .overview {
+  padding: 1rem;
+  padding-top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 90%;
+}
+
+@media (min-width: 992px) {
+  .figure {
+    display: flex;
+    gap: 1rem;
+  }
+  .figure .overview {
+    background: transparent;
+    color: #424242;
+  }
+  .figure .text-tour {
+    position: relative;
+    color: #424242;
+    background: #fff;
+    padding: 0.25rem;
+  }
+  .figure .text-tour h3 {
+    color: #242424;
+  }
+  .figure:hover h3 {
+    color: #003770;
+  }
 }/*# sourceMappingURL=20230323-update.css.map */
