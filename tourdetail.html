@@ -1663,21 +1663,7 @@
             </footer>
 
 
-            <!-- Bootsnavs -->
-            <script src="https://www.asiatica-travel.fr/js/bootsnav.js"></script>
-            <script src="https://www.asiatica-travel.fr/js/jquery.waypoints.min.js"></script>
-            <script type="text/javascript" src="https://www.asiatica-travel.fr/js/main.js"></script>
 
-            <script src="https://www.asiatica-travel.fr/js/lazyload.min.js"></script>
-
-            <script src="https://www.asiatica-travel.fr/js/flickity.pkgd.min.js"></script>
-
-
-
-            <script src="js/sticky.min.js"></script>
-            <script>
-                var sticky = new Sticky('.sticky');
-            </script>
             <!-- <script>
                 const sections = document.querySelectorAll("section.anchor");
                 const links = document.querySelectorAll("nav.link-onepage  a");
@@ -1706,46 +1692,62 @@
 
         </div>
 
-        <script>
-            // Get all sections that have an ID defined
-            const sections = document.querySelectorAll("section[id]");
 
-
-            // Add an event listener listening for scroll
-            window.addEventListener("scroll", navHighlighter);
-
-            function navHighlighter() {
-
-                // Get current scroll position
-                let scrollY = window.pageYOffset;
-
-                // Now we loop through sections to get height, top and ID values for each
-                sections.forEach(current => {
-                    const sectionHeight = current.offsetHeight;
-                    const sectionTop = current.offsetTop - 50;
-                    sectionId = current.getAttribute("id");
-                    const linkonepage = document.querySelector(".link-onepage a[href*=" + sectionId + "]");
-
-                    /*
-                    - If our current scroll position enters the space where current section on screen is, add .active class to corresponding navigation link, else remove it
-                    - To know which link needs an active class, we use sectionId variable we are getting while looping through sections as an selector
-                    */
-                    if (
-                        scrollY > sectionTop &&
-                        scrollY <= sectionTop + sectionHeight
-                    ) {
-                        linkonepage.classList.add("active");
-                    }
-                    else {
-                        linkonepage.classList.remove("active");
-                    }
-                });
-            }
-
-        </script>
 
 
     </div>
+    <!-- Bootsnavs -->
+    <script src="https://www.asiatica-travel.fr/js/bootsnav.js"></script>
+    <script src="https://www.asiatica-travel.fr/js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="https://www.asiatica-travel.fr/js/main.js"></script>
+
+    <script src="https://www.asiatica-travel.fr/js/lazyload.min.js"></script>
+
+    <script src="https://www.asiatica-travel.fr/js/flickity.pkgd.min.js"></script>
+
+
+
+    <script src="js/sticky.min.js"></script>
+    <script>
+        var sticky = new Sticky('.sticky');
+    </script>
+    <script>
+        // Get all sections that have an ID defined
+        const sections = document.querySelectorAll("section[id]");
+
+
+        // Add an event listener listening for scroll
+        window.addEventListener("scroll", navHighlighter);
+
+        function navHighlighter() {
+
+            // Get current scroll position
+            let scrollY = window.pageYOffset;
+
+            // Now we loop through sections to get height, top and ID values for each
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 50;
+                sectionId = current.getAttribute("id");
+                const linkonepage = document.querySelector(".link-onepage a[href*=" + sectionId + "]");
+
+                /*
+                - If our current scroll position enters the space where current section on screen is, add .active class to corresponding navigation link, else remove it
+                - To know which link needs an active class, we use sectionId variable we are getting while looping through sections as an selector
+                */
+                if (
+                    scrollY > sectionTop &&
+                    scrollY <= sectionTop + sectionHeight
+                ) {
+                    linkonepage.classList.add("active");
+                }
+                else {
+                    linkonepage.classList.remove("active");
+                }
+            });
+        }
+
+    </script>
 </body>
 
 </html>
