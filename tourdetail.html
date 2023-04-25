@@ -1739,10 +1739,10 @@
                     scrollY > sectionTop &&
                     scrollY <= sectionTop + sectionHeight
                 ) {
-                    linkonepage.classList.add("active");
+                    linkonepage && linkonepage.classList.add("active");
                 }
                 else {
-                    linkonepage.classList.remove("active");
+                    linkonepage && linkonepage.classList.remove("active");
                 }
             });
         }
