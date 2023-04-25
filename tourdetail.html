@@ -8,18 +8,6 @@
     <link rel="stylesheet" href="https://www.asiatica-travel.fr/css/font-awesome.min.css">
     <link href="https://www.asiatica-travel.fr/css/bundle.css" rel="stylesheet">
 
-    <script src="https://connect.facebook.net/vi_VN/sdk.js?hash=3a589d6967dc0bee7d982df3dc7e0dcc" async=""
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script type="text/javascript" async=""
-        src="https://www.googletagmanager.com/gtag/js?id=AW-1059505556&amp;l=dataLayer&amp;cx=c"></script>
-    <script type="text/javascript" async=""
-        src="https://www.googletagmanager.com/gtag/js?id=G-FKVTWN8ERS&amp;l=dataLayer&amp;cx=c"></script>
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script src="https://connect.facebook.net/signals/config/386712713576982?v=2.9.99&amp;r=stable" async=""></script>
-    <script id="facebook-jssdk" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v2.10"></script>
-    <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
-    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NF74KQ9"></script>
     <script src="https://www.asiatica-travel.fr/js/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="https://www.asiatica-travel.fr/css/flickity.min.css">
     <link rel="stylesheet" href="https://www.asiatica-travel.fr/css/map.css">
@@ -596,13 +584,7 @@
                                                 <div></div>
                                             </div>
                                         </div>
-                                        <script>(function (d, s, id) {
-                                                var js, fjs = d.getElementsByTagName(s)[0];
-                                                if (d.getElementById(id)) return;
-                                                js = d.createElement(s); js.id = id;
-                                                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10';
-                                                fjs.parentNode.insertBefore(js, fjs);
-                                            }(document, 'script', 'facebook-jssdk'));</script>
+
                                         <div class="link-social"><a target="_blank" class="fa fa-facebook"
                                                 href="http://www.facebook.com/sharer.php?u=https://www.asiatica-travel.fr//voyages-authentiques-au-vietnam/impression-du-nord-67.html"></a>
                                             <a target="_blank" href="https://www.youtube.com/user/AsiaticaVoyage"
@@ -1696,7 +1678,7 @@
             <script>
                 var sticky = new Sticky('.sticky');
             </script>
-            <script>
+            <!-- <script>
                 const sections = document.querySelectorAll("section.anchor");
                 const links = document.querySelectorAll("nav.link-onepage  a");
                 window.onscroll = () => {
@@ -1720,11 +1702,47 @@
                     });
                 };
 
-            </script>
+            </script> -->
 
         </div>
 
+        <script>
+            // Get all sections that have an ID defined
+            const sections = document.querySelectorAll("section[id]");
 
+
+            // Add an event listener listening for scroll
+            window.addEventListener("scroll", navHighlighter);
+
+            function navHighlighter() {
+
+                // Get current scroll position
+                let scrollY = window.pageYOffset;
+
+                // Now we loop through sections to get height, top and ID values for each
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 50;
+                    sectionId = current.getAttribute("id");
+                    const linkonepage = document.querySelector(".link-onepage a[href*=" + sectionId + "]");
+
+                    /*
+                    - If our current scroll position enters the space where current section on screen is, add .active class to corresponding navigation link, else remove it
+                    - To know which link needs an active class, we use sectionId variable we are getting while looping through sections as an selector
+                    */
+                    if (
+                        scrollY > sectionTop &&
+                        scrollY <= sectionTop + sectionHeight
+                    ) {
+                        linkonepage.classList.add("active");
+                    }
+                    else {
+                        linkonepage.classList.remove("active");
+                    }
+                });
+            }
+
+        </script>
 
 
     </div>
